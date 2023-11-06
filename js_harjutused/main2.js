@@ -1,93 +1,61 @@
 
-
-let numbrid = [12, 45, 8, 32, 18];
-console.log("Suurim arv massiivist on: " + leiaSuurim(numbrid));
-
-function leiaSuurim(massiiv) {
-    let suurim = massiiv[0];
-
-    for (let i = 1; i < massiiv.length; i++) {
-        if (massiiv[i] > suurim) {
-            suurim = massiiv[i];
-        }
+// suurim
+function suurim(numbers) {
+    if (numbers.length === 0) {
+        return "Massiiv on tühi";
     }
-
-    return suurim;
+    return Math.max(...numbers);
 }
+console.log("Suurim arv: " + suurim([1, 5, 3, 7, 2]));
 
-let numbrid = [12, 45, 8, 32, 18];
-console.log("Suurim arv massiivist on: " + leiaSuurim(numbrid));
-
-
+// celsiusToFahrenheit
 function celsiusToFahrenheit(celsius) {
-    let fahrenheit = (celsius * 9/5) + 32;
-    return fahrenheit;
+    return (celsius * 9/5) + 32;
 }
+console.log("Celsius to Fahrenheit: " + celsiusToFahrenheit(30) + "°F");
 
-let celsiusTemperatuur = 25;
-console.log(celsiusTemperatuur + "°C on " + celsiusToFahrenheit(celsiusTemperatuur) + "°F.");
-
-
-function prindiKorrutustabel(num) {
+// korrutustabel
+function korrutustabel(number) {
     for (let i = 1; i <= 10; i++) {
-        console.log(num + " * " + i + " = " + (num * i));
+        console.log('${number} * ${i} = ${number * i}');
     }
 }
+console.log("Korrutustabel number 5-ga:");
+korrutustabel(5);
 
-let number = 5;
-console.log(number + "-korrutustabel:");
-prindiKorrutustabel(number);
-
-
+// faktoriaal
 function faktoriaal(n) {
-    let tulemus = 1;
+    let result = 1;
     for (let i = 1; i <= n; i++) {
-        tulemus *= i;
+        result *= i;
     }
-    return tulemus;
+    return result;
 }
+console.log("Faktoriaal 5: " + faktoriaal(5));
 
-let arv = 5;
-console.log(arv + "! = " + faktoriaal(arv));
-
-
-function prindiTähed(n) {
+// tähed
+function tähed(n) {
     for (let i = 1; i <= n; i++) {
-        let rida = "";
+        let rida = '';
         for (let j = 1; j <= i; j++) {
-            rida += "*";
+            rida += '*';
         }
         console.log(rida);
     }
 }
+console.log("Tähtede muster:");
+tähed(5);
 
-let tärnideArv = 5;
-console.log("Tähed:");
-prindiTähed(tärnideArv);
-
-
-function onAlgarv(arv) {
-    if (arv <= 1) {
+// Algarvu kontroll
+function onAlgarv(number) {
+    if (number <= 1) {
         return false;
     }
-    if (arv <= 3) {
-        return true;
-    }
-    if (arv % 2 == 0 || arv % 3 == 0) {
-        return false;
-    }
-
-    for (let i = 5; i * i <= arv; i += 6) {
-        if (arv % i == 0 || arv % (i + 2) == 0) {
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
             return false;
         }
     }
     return true;
 }
-
-let kontrollitavArv = 17;
-if (onAlgarv(kontrollitavArv)) {
-    console.log(kontrollitavArv + " on algarv.");
-} else {
-    console.log(kontrollitavArv + " ei ole algarv.");
-}
+console.log("Kas 7 on algarv? " + (onAlgarv(7) ? "Jah" : "Ei"))
