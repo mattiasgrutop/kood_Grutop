@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cat Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #cat-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Cat Generator</h1>
+    
+    <div id="cat-container">
+        <img id="cat-image" alt="Random Cat">
+        <button onclick="getRandomCat()">Get Random Cat</button>
+    </div>
+
+    <script>
+        function getRandomCat() {
+            fetch('https://api.thecatapi.com/v1/images/search')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayCat(data);
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                });
+        }
+
+        function displayCat(data) {
+            const catContainer = document.getElementById('cat-container');
+            const catImage = document.getElementById('cat-image');
+
+            catImage.src = data[0].url;
+            catContainer.style.display = 'block';
+        }
+
+        // Initial cat image on page load
+        getRandomCat();
+    </script>
+</body>
+</html>
