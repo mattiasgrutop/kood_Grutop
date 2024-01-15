@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registreeri</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
 </head>
 <body>
-    <header>
-        <h1>Registreeri</h1>
-        <nav>
-            <ul>
-                <li><a href="login.html">Logi sisse</a></li>
-                <li><a href="register.html">Registreeri</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section>
-        <form action="register-process.php" method="post">
-            <label for="username">Kasutajanimi:</label>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/register" method="post">
+            <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
-
-            <label for="password">Salasõna:</label>
+            
+            <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-
-            <label for="firstname">Eesnimi:</label>
-            <input type="text" id="firstname" name="firstname" required>
-
-            <label for="lastname">Perenimi:</label>
-            <input type="text" id="lastname" name="lastname" required>
-
-            <label for="age">Vanus:</label>
-            <input type="number" id="age" name="age" required>
-
-            <label for="gender">Sugu:</label>
-            <select id="gender" name="gender" required>
-                <option value="male">Mees</option>
-                <option value="female">Naine</option>
-                <option value="other">Muu</option>
-            </select>
-
-            <button type="submit">Registreeri</button>
+            
+            <button type="submit">Register</button>
         </form>
-    </section>
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+</body>
+</html>
 
     <footer>
         <p>&copy; 2024 Michael Jacksoni Fännileht</p>
