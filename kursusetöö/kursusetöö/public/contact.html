@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Page Title</title>
+</head>
+<body>
+
+<!-- Include the navbar -->
+<div id="navbar-container"></div>
+<script>
+    // Fetch and inject the navbar
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+</script>
+
+</head>
+<body>
+    <h1>Kontakt</h1>
+    <p>Küsimuste korral pöörduge:</p>
+    <p>Email: vastutav@isik.com</p>
+    <p>Telefon: +123456789</p>
+    <a href="/">Avaleht</a> | <a href="/about">About</a> | <a href="/contact">Kontakt</a>
+</body>
+</html>

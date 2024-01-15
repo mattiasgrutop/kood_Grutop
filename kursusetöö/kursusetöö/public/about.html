@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Michael Jacksoni kohta</title>
+</head>
+<body>
+
+<!-- Include the navbar -->
+<div id="navbar-container"></div>
+<script>
+    // Fetch and inject the navbar
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+</script>
+
+    <header>
+        <h1>About Michael Jackson</h1>
+        <div id="user-header"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Michael Jackson</h2>
+            <img src="https://www.songhall.org/images/made/images/uploads/exhibits/Michael_Jackson_656_656_85_s_c1.jpg" alt="Michael Jackson">
+            <p>Michael Joseph Jackson (29. august 1958 – 25. juuni 2009) oli ameerika laulja, laulukirjutaja ja tantsija. Ta oli üks edukamaid ja mõjukamaid muusikuid maailmas, sageli tuntud kui "Popkuningas" ja "Moonwalki kuningas".</p>
+            <p>Michael Jackson alustas oma muusikukarjääri juba noorena, olles liige The Jackson 5 ansamblis koos oma vendadega. Tema soolokarjäär tõusis uuele tasemele 1980. aastate alguses, kui ta andis välja albumi "Off the Wall".</p>
+            <p>1982. aastal ilmunud "Thriller" sai tema kõige edukamaks albumiks, müües üle 66 miljoni koopia ja muutes Jacksoni kogu muusikamaailma ikooniks. Albumi nimilugu "Thriller" tõi kaasa ikoonilise muusikavideo, millel oli revolutsiooniline tantsustiil ja eriefektid.</p>
+            <p>Michael Jackson oli mitmekülgne kunstnik, kes oli tuntud oma lauluoskuse, tantsimisoskuste, videosisu ja lavashowde poolest. Tema panus muusikasse ja popkultuuri on jätkuvalt märkimisväärne.</p>
+            <p>Michael Jacksonile on antud arvukalt auhindu, sealhulgas Grammy auhindu. Tema muusika mõjutas mitmeid põlvkondi ja tema pärand elab edasi tema fännide südames.</p>
+            <p>Kahjuks lahkus Michael Jackson meie hulgast 2009. aastal, kuid tema mõju muusikamaailmale ja kultuurile kestab igavesti.</p>
+        </section>
+        <section>
+            <h2>Kuulsad tsitaadid</h2>
+            <p id="quote">Laadib tsitaati...</p>
+            <button onclick="getRandomQuote()">Saada tsitaat</button>
+        </section>
+    </main>
+    <script>
+        // Muudetud koodi alustus
+        async function getRandomQuote() {
+            try {
+                const response = await fetch('https://type.fit/api/quotes');
+                const data = await response.json();
+
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomQuote = data[randomIndex].text;
+                document.getElementById('quote').innerText = randomQuote;
+            } catch (error) {
+                console.error('Viga tsitaatide laadimisel:', error);
+            }
+        }
+    </script>
+</body>
+</html>
+
