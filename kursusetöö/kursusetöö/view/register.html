@@ -4,24 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Registreeri kasutaja</title>
+    <title>User Registration</title>
 </head>
 <body>
-    <div class="container">
-        <form id="registerForm">
-            <h2>Register</h2>
-            <label for="registerName">Name:</label>
-            <input type="text" id="registerName" required>
-            <label for="registerEmail">Email:</label>
-            <input type="email" id="registerEmail" required>
-            <label for="registerPassword">Password:</label>
-            <input type="password" id="registerPassword" required>
-            <button type="button" onclick="register()">Register</button>
-        </form>
 
-        <p>Konto olemas? <a href="login.html">Logi sisse</a>.</p>
-    </div>
 
-    <script src="script.js"></script>
+<div id="navbar-container"></div>
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+</script>
+
+<div class="registration-container">
+    <form id="registrationForm">
+        <h2>User Registration</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <button type="button" onclick="register()">Register</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
+
